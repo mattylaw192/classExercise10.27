@@ -1,5 +1,5 @@
 // Code for handling the push
-/ Initialize Firebase
+// Initialize Firebase
  var config = {
    apiKey: "AIzaSyAbfpDmpf6HG7Z0g29QsjRDbTmgBPFIR6s",
    authDomain: "class27-d2ae6.firebaseapp.com",
@@ -19,11 +19,26 @@ var employeeRole = "";
 var employeeStartDate = "";
 var employeeMonthlyRate = 0;
 
+$("#submit").on("click",function(event){
+    event.preventDefault();
 
-database.ref().push({
-	name: employeeName,
-	role: employeeRole,
-	StartDate: employeeStartDate,
-	employeeRate: employeeMonthlyRate,
-	dateAdded: firebase.database.ServerValue.TIMESTAMP
-});
+    var employeeNameText = $("#employeeNameId").val().trim();
+    var employeeRoleText = $("#employeeRole").val().trim();
+    var employeeStartDateText = $("#startDate").val().trim();
+    var employeeMonthlyRateText = $("#monthlyRate").val().trim();
+    // parseInt($("#bidder-price").val().trim());
+  
+
+
+    database.ref().push({
+        name: employeeNameText,
+        role: employeeRoleText,
+        StartDate: employeeStartDateText,
+        employeeRate: employeeMonthlyRateText,
+        dateAdded: firebase.database.ServerValue.TIMESTAMP
+    });
+
+
+
+})
+
