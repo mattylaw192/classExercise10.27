@@ -10,13 +10,20 @@
  };
  firebase.initializeApp(config);
 
+ //created variable to reference database
+var database = firebase.database();
 
+//Initial values
+var employeeName = "";
+var employeeRole = "";
+var employeeStartDate = "";
+var employeeMonthlyRate = 0;
 
 
 database.ref().push({
-	name: name,
-	email: email,
-	age: age,
-	comment: comment,
+	name: employeeName,
+	role: employeeRole,
+	StartDate: employeeStartDate,
+	employeeRate: employeeMonthlyRate,
 	dateAdded: firebase.database.ServerValue.TIMESTAMP
 });
